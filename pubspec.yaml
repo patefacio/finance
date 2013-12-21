@@ -8,6 +8,8 @@ dependencies:
 
   polymer: ">=0.9.0 < 0.10.0"
 
+  logging: ">=0.7.1"
+
   collection_helpers: ">=0.9.0 < 0.10.0"
 
 # custom <finance dependencies>
