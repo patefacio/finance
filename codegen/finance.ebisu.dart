@@ -10,6 +10,9 @@ main() {
 
   ComponentLibrary lib =
     componentLibrary('finance')
+    ..system.includeReadme = true
+    ..system.license = 'boost'
+    ..system.introduction = 'In the long-run a collection of financial components. First component is a basic mortgage calculator.'
     ..pubSpec.addDependency(pubdep('collection_helpers')..version =  ">=0.9.0 < 0.10.0")
     ..prefix = 'plus'
     ..rootPath = here
