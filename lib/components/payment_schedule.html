@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<!-- custom <paymentSchedule head> -->
+
+<link rel="import" href="date_input.html">
+
+<!-- end <paymentSchedule head> -->
+
+<polymer-element name="plus-payment-schedule"  apply-author-styles>
+  <template>
+    <style>
+    /* custom <paymentSchedule style> */
+
+
+
+    /* end <paymentSchedule style> */
+    </style>
+
+    <!-- custom <paymentSchedule template> -->
+
+      <fieldset>
+        <legend>Payment Schedule</legend>
+
+        <label><span class="fa fa-calendar fa-fw" style="width:1.5em"></span> Start Date</label>
+        <plus-date-input id="date"></plus-date-input>
+
+        <div class="payment-schedule">
+          <table id="schedule_table">
+          </table>
+        </div>
+      </fieldset>
+
+    <!-- end <paymentSchedule template> -->
+
+  </template>
+  <script type="application/dart" src="payment_schedule.dart"></script>
+</polymer-element>

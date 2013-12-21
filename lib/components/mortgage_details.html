@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<!-- custom <mortgageDetails head> -->
+
+    <link rel="stylesheet" id="font-awesome-4-css" href="http://astronautweb.co/wp-content/themes/astro2012/css/font-awesome-4.0.3.css?ver=4.0.3" type="text/css" media="all">
+    <link rel="import" href="money_input.html">
+    <link rel="import" href="rate_input.html">
+    <link rel="import" href="num_with_units_input.html">
+
+    <link rel="import" href="payment_schedule.html">
+
+<!-- end <mortgageDetails head> -->
+
+<polymer-element name="plus-mortgage-details"  apply-author-styles>
+  <template>
+    <style>
+    /* custom <mortgageDetails style> */
+    /* end <mortgageDetails style> */
+    </style>
+
+    <!-- custom <mortgageDetails template> -->
+    <fieldset>
+
+      <legend>Mortgage Details</legend>
+
+      <label><span class="fa fa-usd fa-fw" style="width:1.5em"></span> Amount</label>
+      <plus-money-input id="mortgage-amount"></plus-money-input>
+
+      <label><span class="fa fa-calendar fa-fw" style="width:1.5em"></span> Term</label>
+      <plus-num-with-units-input id="term-years"></plus-num-with-units-input>
+
+      <label><span class="fa fa-signal fa-fw" style="width:1.5em"></span> Rate</label>
+      <plus-rate-input id="rate"></plus-rate-input>
+
+      <p>Resulting Payment: {{formattedPayment}}</p>
+
+    </fieldset>
+
+    <!-- end <mortgageDetails template> -->
+
+  </template>
+  <script type="application/dart" src="mortgage_details.dart"></script>
+</polymer-element>

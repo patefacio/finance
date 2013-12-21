@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<!-- custom <moneyInput head> -->
+<!-- end <moneyInput head> -->
+
+<polymer-element name="plus-money-input"  apply-author-styles>
+  <template>
+    <style>
+    /* custom <moneyInput style> */
+
+        .money-amount {
+        background-color: lightcyan;
+        border: 2px double;
+        border-radius: 5px;
+        text-align: right;
+        }
+
+    /* end <moneyInput style> */
+    </style>
+
+    <!-- custom <moneyInput template> -->
+
+    <input class="money-amount" id="money-amount"></input>
+
+    <!-- end <moneyInput template> -->
+
+  </template>
+  <script type="application/dart" src="money_input.dart"></script>
+</polymer-element>

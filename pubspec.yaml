@@ -1,0 +1,30 @@
+name: finance
+version: 0.0.1
+author: Daniel Davidson <dbdavidson@yahoo.com>
+dependencies:
+  browser: ">=0.9.0 < 0.10.0"
+
+  path: ">=1.0.0 < 1.10.0"
+
+  polymer: ">=0.9.0 < 0.10.0"
+
+  collection_helpers: ">=0.9.0 < 0.10.0"
+
+# custom <finance dependencies>
+
+  intl:  ">=0.9.0 < 0.10.0"
+
+# end <finance dependencies>
+
+dev_dependencies:
+# custom <finance dev dependencies>
+# end <finance dev dependencies>
+
+transformers:
+# custom <finance transformers>
+  - polymer:
+      entry_points:
+        - web/examples/mortgage_calculator/mortgage_calculator.html
+
+# end <finance transformers>
+

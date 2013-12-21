@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<!-- custom <mortgageCalculator head> -->
+
+<link rel="import" href="mortgage_details.html">
+<link rel="import" href="payment_schedule.html">
+
+<!-- end <mortgageCalculator head> -->
+
+<polymer-element name="plus-mortgage-calculator"  apply-author-styles>
+  <template>
+    <style>
+    /* custom <mortgageCalculator style> */
+
+        label {
+        clear: left;
+        float: left;
+        width: 6em; /* or whatever length suits */
+        text-align: left;
+        }
+
+        legend {
+        border-style: double;
+        border-radius: 5px;
+        }
+
+        fieldset {
+        border-style: 35 double;
+        border-radius: 5px;
+        opacity: .85;
+        }
+
+        plus-mortgage-details {
+        border-style: 5 double;
+        padding: 5px;
+        display: block;
+        float: left;
+        background-color: cornsilk;
+        width: 17em;
+        }
+
+        plus-payment-schedule {
+        border-style: 5 double;
+        padding: 5px;
+        display: block;
+        float: left;
+        background-color: cornsilk;
+        width: 35em;
+        }
+
+        plus-payment-schedule .payment-schedule thead td {
+        text-align: center;
+        }
+
+        plus-payment-schedule .payment-schedule td {
+        white-space: nowrap;
+        }
+
+
+        plus-payment-schedule .payment-schedule tr:nth-child(even) {
+        background-color: bisque;
+        }
+
+        .money {
+        text-align: right;
+        padding: 0 6px 0 6px;
+        font-family: "Courier New", Courier, monospace
+        }
+
+        plus-payment-schedule .payment-schedule .table-line td {
+	border-top: sienna solid thick;
+	border-left: none;
+	border-right: none;
+        }
+
+        plus-payment-schedule .payment-schedule tbody tr:first-child td {
+	border-top: sienna solid thick;
+	border-left: none;
+	border-right: none;
+        }
+
+        plus-payment-schedule .payment-schedule {
+        border-style: 2 double red;
+        align: center;
+        padding: 10px;
+        height: 300px;
+        width: 32em;
+        overflow: auto;
+        }
+
+    /* end <mortgageCalculator style> */
+    </style>
+
+    <!-- custom <mortgageCalculator template> -->
+
+    <plus-mortgage-details id="details"></plus-mortgage-details>
+    <plus-payment-schedule id="schedule"></plus-payment-schedule>
+
+    <!-- end <mortgageCalculator template> -->
+
+  </template>
+  <script type="application/dart" src="mortgage_calculator.dart"></script>
+</polymer-element>
