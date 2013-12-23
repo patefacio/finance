@@ -14,7 +14,6 @@ class MoneyInput extends PolymerElement {
     // custom <MoneyInput created>
 
     if(shadowRoot != null) {
-      print("Created MoneyInput");
       _amountElement = shadowRoot.querySelector('#money-amount')
         ..onBlur.listen((evt) => reformatAmount())
         ..onFocus.listen((evt) => reformatAmount())

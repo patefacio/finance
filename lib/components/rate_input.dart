@@ -51,7 +51,7 @@ class RateInput extends PolymerElement {
 
   // end <class RateInput>
   InputElement _rateElement;
-  @observable num _rate;
+  num _rate;
 }
 
 

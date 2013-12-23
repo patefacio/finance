@@ -59,7 +59,7 @@ main() {
           ..members = [
             member('rate_element')..type = 'InputElement',
             member('rate')..access = RO
-            ..type = 'num'..isObservable = true,
+            ..type = 'num',
           ]),
       component('num_with_units_input')
       ..imports = [

@@ -61,9 +61,12 @@ class PaymentSchedule extends PolymerElement {
     num totalInterest = 0.0;
 
     payments.forEach((payment) {
+      //print("ScheduleTable => $_scheduleTable");
       var row = _scheduleTable.addRow();
       row.addCell().innerHtml = dateFormat(payment.date);
-      row.addCell()
+      var cell = row.addCell();
+      //print("Cell $cell");
+      cell
         ..innerHtml = moneyFormat(payment.periodPrincipalPaid, true)
         ..classes.add('money');
       row.addCell()
