@@ -1,0 +1,46 @@
+/* custom <basicInput top> */
+/* end <basicInput top> */
+
+
+plus-money-input {
+  /* custom <money-input> */
+    display: block;
+  /* end <money-input> */
+
+}
+
+
+plus-rate-input {
+  /* custom <rate-input> */
+    display: block;
+  /* end <rate-input> */
+
+}
+
+
+plus-num-with-units-input {
+  /* custom <num-with-units-input> */
+    display: block;
+  /* end <num-with-units-input> */
+
+}
+
+
+plus-date-input {
+  /* custom <date-input> */
+    display: block;
+  /* end <date-input> */
+
+}
+
+
+plus-year-input {
+  /* custom <year-input> */
+    display: block;
+  /* end <year-input> */
+
+}
+
+
+/* custom <basicInput bottom> */
+/* end <basicInput bottom> */

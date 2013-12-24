@@ -1,9 +1,9 @@
 library payment_schedule;
 import 'dart:html';
-import 'package:finance/components/date_input.dart';
-import 'package:finance/formatting.dart';
-import 'package:finance/mortgage.dart';
+import 'package:basic_input/components/date_input.dart';
+import 'package:basic_input/formatting.dart';
 import 'package:logging/logging.dart';
+import 'package:mortgage_calculator/mortgage.dart';
 import 'package:polymer/polymer.dart';
 
 final _logger = new Logger("paymentSchedule");

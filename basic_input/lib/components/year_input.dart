@@ -1,6 +1,6 @@
 library year_input;
 import 'dart:html';
-import 'package:finance/formatting.dart';
+import 'package:basic_input/formatting.dart';
 import 'package:logging/logging.dart';
 import 'package:polymer/polymer.dart';
 

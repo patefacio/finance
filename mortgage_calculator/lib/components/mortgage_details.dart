@@ -1,11 +1,11 @@
 library mortgage_details;
 import 'dart:html';
-import 'package:finance/components/money_input.dart';
-import 'package:finance/components/num_with_units_input.dart';
-import 'package:finance/components/rate_input.dart';
-import 'package:finance/formatting.dart';
-import 'package:finance/mortgage.dart';
+import 'package:basic_input/components/money_input.dart';
+import 'package:basic_input/components/num_with_units_input.dart';
+import 'package:basic_input/components/rate_input.dart';
+import 'package:basic_input/formatting.dart';
 import 'package:logging/logging.dart';
+import 'package:mortgage_calculator/mortgage.dart';
 import 'package:polymer/polymer.dart';
 
 final _logger = new Logger("mortgageDetails");

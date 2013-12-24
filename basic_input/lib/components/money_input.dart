@@ -1,6 +1,6 @@
 library money_input;
 import 'dart:html';
-import 'package:finance/formatting.dart';
+import 'package:basic_input/formatting.dart';
 import 'package:logging/logging.dart';
 import 'package:polymer/polymer.dart';
 
@@ -30,7 +30,7 @@ class MoneyInput extends PolymerElement {
   reformatAmount() => amount = pullNum(_amountElement.value);
 
   set amount(num amount) {
-    if(_amount != amount) {
+    if(_amount != amount && amount != null) {
       _amountElement.value = moneyFormat(amount);
       notifyPropertyChange(#amount, _amount, amount);
       _amount = amount;

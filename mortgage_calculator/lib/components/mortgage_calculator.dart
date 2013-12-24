@@ -1,9 +1,9 @@
 library mortgage_calculator;
 import 'dart:html';
-import 'package:finance/components/mortgage_details.dart';
-import 'package:finance/components/payment_schedule.dart';
-import 'package:finance/mortgage.dart';
 import 'package:logging/logging.dart';
+import 'package:mortgage_calculator/components/mortgage_details.dart';
+import 'package:mortgage_calculator/components/payment_schedule.dart';
+import 'package:mortgage_calculator/mortgage.dart';
 import 'package:polymer/polymer.dart';
 
 final _logger = new Logger("mortgageCalculator");
