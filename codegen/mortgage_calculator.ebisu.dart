@@ -51,7 +51,7 @@ main() {
           ]),
       component('mortgage_details')
       ..imports = [
-      'package:mortgage_calculator/mortgage.dart',     
+      'package:mortgage_calculator/mortgage.dart',
       'package:basic_input/formatting.dart',
       'package:basic_input/components/money_input.dart',
       'package:basic_input/components/rate_input.dart',
