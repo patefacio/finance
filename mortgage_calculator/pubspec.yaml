@@ -23,6 +23,9 @@ dependencies:
 
 dev_dependencies:
 # custom <mortgage_calculator dev dependencies>
+
+  ebisu: ">=0.0.9"
+
 # end <mortgage_calculator dev dependencies>
 
 transformers:
