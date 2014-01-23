@@ -1,4 +1,4 @@
-library mortgage;
+library mortgage_calculator.mortgage;
 
 // custom <additional imports>
 

@@ -89,5 +89,6 @@ class PaymentSchedule extends PolymerElement {
 
 
 
+
 // custom <payment_schedule>
 // end <payment_schedule>

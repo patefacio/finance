@@ -52,5 +52,6 @@ class MoneyInput extends PolymerElement {
 
 
 
+
 // custom <money_input>
 // end <money_input>

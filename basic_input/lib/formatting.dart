@@ -1,4 +1,4 @@
-library formatting;
+library basic_input.formatting;
 
 import 'package:intl/intl.dart';
 // custom <additional imports>

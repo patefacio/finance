@@ -56,5 +56,6 @@ class RateInput extends PolymerElement {
 
 
 
+
 // custom <rate_input>
 // end <rate_input>
