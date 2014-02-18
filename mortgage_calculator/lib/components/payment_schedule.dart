@@ -31,18 +31,29 @@ class PaymentSchedule extends PolymerElement {
   bool get applyAuthorStyles => true;
 
   setTableExtras(num principal, num interest) {
-    _scheduleTable
-      ..tHead = (_scheduleTable.createTHead()..innerHtml =
-          '<td>Date</td><td>Principal Paid</td><td>Interest Paid</td><td>Balance</td>')
-      ..tFoot = (_scheduleTable.createTFoot()
-          ..innerHtml =
+    final tHead = new Element.tag('thead')
+    ..innerHtml = '''
+<td>Date</td>
+<td>Principal Paid</td>
+<td>Interest Paid</td>
+<td>Balance</td>
+''';
+   
+    final tFoot = new Element.tag('tfoot')
+    ..innerHtml =
           '''
 <td>Total Paid</td>
 <td class="money">${moneyFormat(principal)}</td>
 <td class="money">${moneyFormat(interest)}</td>
 <td class="money">${moneyFormat(principal + interest)}</td>'''
-          ..children.first.classes.add('table-line')
-                 );
+      ..children.first.classes.add('table-line');
+
+    _scheduleTable.children
+    ..removeWhere((child) => child is TableSectionElement);
+    
+    _scheduleTable.children
+    ..insert(0, tHead)
+    ..add(tFoot);    
   }
 
   bool paymentDetails([MortgageSpec mortgageSpec]) {
@@ -62,23 +73,27 @@ class PaymentSchedule extends PolymerElement {
 
     payments.forEach((payment) {
       //print("ScheduleTable => $_scheduleTable");
-      var row = _scheduleTable.addRow();
-      row.addCell().innerHtml = dateFormat(payment.date);
-      var cell = row.addCell();
-      //print("Cell $cell");
+      var row = new TableRowElement();
+      _scheduleTable.children.add(row);
+
+      row.children.add(new TableCellElement()..innerHtml = dateFormat(payment.date));
+
+      var cell = (row.children..add(new TableCellElement())).last;
+
       cell
         ..innerHtml = moneyFormat(payment.periodPrincipalPaid, true)
         ..classes.add('money');
-      row.addCell()
+      (row.children..add(new TableCellElement())).last
         ..innerHtml = moneyFormat(payment.periodInterestPaid, true)
         ..classes.add('money');
-      row.addCell()
+      (row.children..add(new TableCellElement())).last
         ..innerHtml = moneyFormat(payment.remainingPrincipal, true)
         ..classes.add('money');
       totalPrincipal += payment.periodPrincipalPaid;
       totalInterest += payment.periodInterestPaid;
     });
     setTableExtras(totalPrincipal, totalInterest);
+    return true;
   }
 
   // end <class PaymentSchedule>
