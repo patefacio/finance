@@ -10,7 +10,7 @@ dependencies:
 
   logging: ">=0.7.1"
 
-  collection_helpers: ">=0.9.0 < 0.10.0"
+  collection: ">=0.9.0 < 0.10.0"
 
 # custom <basic_input dependencies>
 
