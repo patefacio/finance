@@ -1,5 +1,5 @@
 library mortgage_calculator;
-import 'dart:html';
+import 'dart:html' hide Timeline;
 import 'package:logging/logging.dart';
 import 'package:mortgage_calculator/components/mortgage_details.dart';
 import 'package:mortgage_calculator/components/payment_schedule.dart';
@@ -10,6 +10,7 @@ final _logger = new Logger("mortgageCalculator");
 
 @CustomTag("plus-mortgage-calculator")
 class MortgageCalculator extends PolymerElement {
+
   MortgageDetails mortgageDetails;
   PaymentSchedule paymentSchedule;
 
@@ -35,8 +36,6 @@ class MortgageCalculator extends PolymerElement {
   }
 
   // custom <class MortgageCalculator>
-
-  bool get applyAuthorStyles => true;
 
   void updatePaymentSchedule() {
     var rate = mortgageDetails.rate;

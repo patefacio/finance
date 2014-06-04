@@ -1,4 +1,5 @@
 library payment_schedule;
+import 'dart:html' hide Timeline;
 import 'dart:html';
 import 'package:basic_input/components/date_input.dart';
 import 'package:basic_input/formatting.dart';
@@ -10,6 +11,7 @@ final _logger = new Logger("paymentSchedule");
 
 @CustomTag("plus-payment-schedule")
 class PaymentSchedule extends PolymerElement {
+
 
   PaymentSchedule.created() : super.created() {
     // custom <PaymentSchedule created>
@@ -28,8 +30,6 @@ class PaymentSchedule extends PolymerElement {
 
   onStartDateUpdate(observer) => _startDateInput.onUpdate(observer);
 
-  bool get applyAuthorStyles => true;
-
   setTableExtras(num principal, num interest) {
     final tHead = new Element.tag('thead')
     ..innerHtml = '''
@@ -38,7 +38,7 @@ class PaymentSchedule extends PolymerElement {
 <td>Interest Paid</td>
 <td>Balance</td>
 ''';
-   
+
     final tFoot = new Element.tag('tfoot')
     ..innerHtml =
           '''
@@ -50,10 +50,10 @@ class PaymentSchedule extends PolymerElement {
 
     _scheduleTable.children
     ..removeWhere((child) => child is TableSectionElement);
-    
+
     _scheduleTable.children
     ..insert(0, tHead)
-    ..add(tFoot);    
+    ..add(tFoot);
   }
 
   bool paymentDetails([MortgageSpec mortgageSpec]) {

@@ -1,5 +1,5 @@
 library money_input;
-import 'dart:html';
+import 'dart:html' hide Timeline;
 import 'package:basic_input/formatting.dart';
 import 'package:logging/logging.dart';
 import 'package:polymer/polymer.dart';
@@ -8,6 +8,7 @@ final _logger = new Logger("moneyInput");
 
 @CustomTag("plus-money-input")
 class MoneyInput extends PolymerElement {
+
   num get amount => _amount;
 
   MoneyInput.created() : super.created() {

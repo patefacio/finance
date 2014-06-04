@@ -6,7 +6,6 @@ import 'dart:math';
 
 // end <additional imports>
 
-
 class MortgageSpec {
 
   MortgageSpec(this.principal, this.rate, this.term);
@@ -53,6 +52,7 @@ Term: $term
 }
 
 class MortgagePaydownRecord {
+
   DateTime date;
   num periodInterestPaid;
   num periodPrincipalPaid;
@@ -72,7 +72,7 @@ Remaining Principal: $remainingPrincipal
 
 // custom <library mortgage>
 
-double mortgagePayment(principal, rate, years) {
+double mortgagePayment(num principal, num rate, num years) {
   var monthlyRate = rate/12.0;
   var months = 12.0*years;
   return principal*(monthlyRate/(1.0 - pow(1.0 + monthlyRate, -months)));

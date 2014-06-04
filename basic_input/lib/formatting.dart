@@ -4,7 +4,6 @@ import 'package:intl/intl.dart';
 // custom <additional imports>
 // end <additional imports>
 
-
 // custom <library formatting>
 
 int _zero = "0".codeUnits[0];

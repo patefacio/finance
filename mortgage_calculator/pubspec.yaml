@@ -2,14 +2,8 @@ name: mortgage_calculator
 version: 0.0.1
 author: Daniel Davidson <dbdavidson@yahoo.com>
 dependencies:
-  browser: ">=0.9.0 < 0.10.0"
-
-  path: ">=1.0.0 < 1.10.0"
-
-  polymer: ">=0.9.0 < 0.10.0"
-
-  logging: ">=0.7.1"
-
+  polymer: ">=0.10.0 <0.11.0"
+  logging: ">=0.9.0 <0.10.0"
   collection: ">=0.9.0 < 0.10.0"
 
 # custom <mortgage_calculator dependencies>
@@ -22,6 +16,9 @@ dependencies:
 # end <mortgage_calculator dependencies>
 
 dev_dependencies:
+  unittest: ">=0.11.0"
+  browser: "any"
+
 # custom <mortgage_calculator dev dependencies>
 
   ebisu: ">=0.0.9"
@@ -29,6 +26,7 @@ dev_dependencies:
 # end <mortgage_calculator dev dependencies>
 
 transformers:
+
 # custom <mortgage_calculator transformers>
 
   - polymer:

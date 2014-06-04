@@ -1,5 +1,5 @@
 library rate_input;
-import 'dart:html';
+import 'dart:html' hide Timeline;
 import 'package:basic_input/formatting.dart';
 import 'package:logging/logging.dart';
 import 'package:polymer/polymer.dart';
@@ -8,6 +8,7 @@ final _logger = new Logger("rateInput");
 
 @CustomTag("plus-rate-input")
 class RateInput extends PolymerElement {
+
   num get rate => _rate;
 
   RateInput.created() : super.created() {

@@ -1,5 +1,5 @@
 library date_input;
-import 'dart:html';
+import 'dart:html' hide Timeline;
 import 'package:basic_input/formatting.dart';
 import 'package:logging/logging.dart';
 import 'package:polymer/polymer.dart';
@@ -8,6 +8,7 @@ final _logger = new Logger("dateInput");
 
 @CustomTag("plus-date-input")
 class DateInput extends PolymerElement {
+
   DateTime get date => _date;
 
   DateInput.created() : super.created() {

@@ -1,5 +1,5 @@
 library mortgage_details;
-import 'dart:html';
+import 'dart:html' hide Timeline;
 import 'package:basic_input/components/money_input.dart';
 import 'package:basic_input/components/num_with_units_input.dart';
 import 'package:basic_input/components/rate_input.dart';
@@ -12,6 +12,7 @@ final _logger = new Logger("mortgageDetails");
 
 @CustomTag("plus-mortgage-details")
 class MortgageDetails extends PolymerElement {
+
   NumWithUnitsInput termYearsInput;
   MoneyInput mortgageAmountInput;
   RateInput rateInput;
@@ -49,8 +50,6 @@ class MortgageDetails extends PolymerElement {
   }
 
   // custom <class MortgageDetails>
-
-  bool get applyAuthorStyles => true;
 
   num get mortgageAmount => mortgageAmountInput.amount;
   num get termYears => termYearsInput.number;

@@ -1,5 +1,5 @@
 library year_input;
-import 'dart:html';
+import 'dart:html' hide Timeline;
 import 'package:basic_input/formatting.dart';
 import 'package:logging/logging.dart';
 import 'package:polymer/polymer.dart';
@@ -8,6 +8,7 @@ final _logger = new Logger("yearInput");
 
 @CustomTag("plus-year-input")
 class YearInput extends PolymerElement {
+
   int get year => _year;
 
   YearInput.created() : super.created() {

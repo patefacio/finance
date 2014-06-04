@@ -1,5 +1,5 @@
 library num_with_units_input;
-import 'dart:html';
+import 'dart:html' hide Timeline;
 import 'package:basic_input/formatting.dart';
 import 'package:intl/intl.dart';
 import 'package:logging/logging.dart';
@@ -9,6 +9,7 @@ final _logger = new Logger("numWithUnitsInput");
 
 @CustomTag("plus-num-with-units-input")
 class NumWithUnitsInput extends PolymerElement {
+
   String units;
   num get number => _number;
 
