@@ -38,8 +38,6 @@ class MoneyInput extends PolymerElement {
     }
   }
 
-  bool get applyAuthorStyles => true;
-
   onUpdate(observer) =>
     changes.listen((records) {
       if(records.any((record) => record.name == #amount))
