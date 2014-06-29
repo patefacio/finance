@@ -12,20 +12,21 @@ class MoneyInput extends PolymerElement {
   num get amount => _amount;
 
   MoneyInput.created() : super.created() {
-    // custom <MoneyInput created>
-
-    if(shadowRoot != null) {
-      _amountElement = shadowRoot.querySelector('#money-amount')
-        ..onBlur.listen((evt) => reformatAmount())
-        ..onFocus.listen((evt) => reformatAmount())
-        ..onKeyUp.listen((evt) { if(evt.which == 13) reformatAmount(); });
-    }
-
-    // end <MoneyInput created>
   }
 
+  attached(){
+    super.attached();
+    _amountElement = $['money-amount'] ;
+    _amountElement
+      ..onBlur.listen((evt) => reformatAmount())
+      ..onFocus.listen((evt) => reformatAmount())
+      ..onKeyUp.listen((evt) { if(evt.which == 13) reformatAmount(); });
+  }
+
+ 
   // custom <class MoneyInput>
 
+//  set label(String s) => _amountElement.placeholder = s;
   set label(String s) => _amountElement.placeholder = s;
 
   reformatAmount() => amount = pullNum(_amountElement.value);

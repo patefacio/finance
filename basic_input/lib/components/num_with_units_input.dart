@@ -14,16 +14,14 @@ class NumWithUnitsInput extends PolymerElement {
   num get number => _number;
 
   NumWithUnitsInput.created() : super.created() {
-    // custom <NumWithUnitsInput created>
+  }
 
-    if(shadowRoot == null) return;
-
-    _valueElement = shadowRoot.querySelector('#value')
+  attached(){
+    super.attached();
+    _valueElement = $['value'] // shadowRoot.querySelector('#value')
       ..onBlur.listen((evt) => reformatNumber())
       ..onFocus.listen((evt) => reformatNumber())
       ..onKeyUp.listen((evt) { if(evt.which == 13) reformatNumber(); });
-
-    // end <NumWithUnitsInput created>
   }
 
   // custom <class NumWithUnitsInput>
