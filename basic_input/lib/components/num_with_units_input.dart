@@ -14,6 +14,17 @@ class NumWithUnitsInput extends PolymerElement {
   num get number => _number;
 
   NumWithUnitsInput.created() : super.created() {
+    _logger.fine('NumWithUnitsInput created sr => $shadowRoot');
+  }
+
+  void domReady() {
+    super.domReady();
+    _logger.fine('NumWithUnitsInput domReady with sr => $shadowRoot');
+  }
+
+  void ready() {
+    super.ready();
+    _logger.fine('NumWithUnitsInput ready with sr => $shadowRoot');
     // custom <NumWithUnitsInput created>
 
     if(shadowRoot == null) return;
@@ -24,7 +35,16 @@ class NumWithUnitsInput extends PolymerElement {
       ..onKeyUp.listen((evt) { if(evt.which == 13) reformatNumber(); });
 
     // end <NumWithUnitsInput created>
+
   }
+
+  void attached() {
+    super.attached();
+    _logger.fine('NumWithUnitsInput attached with sr => $shadowRoot');
+    assert(shadowRoot != null);
+  }
+
+
 
   // custom <class NumWithUnitsInput>
 

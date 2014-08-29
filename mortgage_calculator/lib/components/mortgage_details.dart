@@ -20,10 +20,21 @@ class MortgageDetails extends PolymerElement {
   @observable String formattedPayment;
 
   MortgageDetails.created() : super.created() {
+    _logger.fine('MortgageDetails created sr => $shadowRoot');
+  }
+
+  void domReady() {
+    super.domReady();
+    _logger.fine('MortgageDetails domReady with sr => $shadowRoot');
+  }
+
+  void ready() {
+    super.ready();
+    _logger.fine('MortgageDetails ready with sr => $shadowRoot');
     // custom <MortgageDetails created>
 
     if(null == shadowRoot) return;
-
+    _logger.fine('Composed moneyInput sr => ${($["mortgage-amount"] as MoneyInput).shadowRoot}');
     (mortgageAmountInput = $["mortgage-amount"] as MoneyInput)
       ..label = r" $ Amount of Loan"
       ..onBlur.listen((_) => recalc())
@@ -47,7 +58,16 @@ class MortgageDetails extends PolymerElement {
     recalc();
 
     // end <MortgageDetails created>
+
   }
+
+  void attached() {
+    super.attached();
+    _logger.fine('MortgageDetails attached with sr => $shadowRoot');
+    assert(shadowRoot != null);
+  }
+
+
 
   // custom <class MortgageDetails>
 

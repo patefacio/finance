@@ -2,9 +2,9 @@ name: basic_input
 version: 0.0.1
 author: Daniel Davidson <dbdavidson@yahoo.com>
 dependencies:
-  polymer: ">=0.10.0 <0.11.0"
-  logging: ">=0.9.0 <0.10.0"
-  collection: ">=0.9.0 < 0.10.0"
+  polymer: ">=0.13.0"
+  logging: ">=0.9.2 <0.10.0"
+  collection: ">=0.9.4 < 0.10.0"
 
 # custom <basic_input dependencies>
 
@@ -20,6 +20,9 @@ dev_dependencies:
 # end <basic_input dev dependencies>
 
 transformers:
+  - polymer:
+      entry_points:
+        - web/examples/basic_input/basic_input.html
 
 # custom <basic_input transformers>
 
@@ -28,4 +31,3 @@ transformers:
         - web/examples/basic_input/basic_input.html
 
 # end <basic_input transformers>
-

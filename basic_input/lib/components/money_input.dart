@@ -12,6 +12,17 @@ class MoneyInput extends PolymerElement {
   num get amount => _amount;
 
   MoneyInput.created() : super.created() {
+    _logger.fine('MoneyInput created sr => $shadowRoot');
+  }
+
+  void domReady() {
+    super.domReady();
+    _logger.fine('MoneyInput domReady with sr => $shadowRoot');
+  }
+
+  void ready() {
+    super.ready();
+    _logger.fine('MoneyInput ready with sr => $shadowRoot');
     // custom <MoneyInput created>
 
     if(shadowRoot != null) {
@@ -22,7 +33,16 @@ class MoneyInput extends PolymerElement {
     }
 
     // end <MoneyInput created>
+
   }
+
+  void attached() {
+    super.attached();
+    _logger.fine('MoneyInput attached with sr => $shadowRoot');
+    assert(shadowRoot != null);
+  }
+
+
 
   // custom <class MoneyInput>
 

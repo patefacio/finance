@@ -14,6 +14,17 @@ class PaymentSchedule extends PolymerElement {
 
 
   PaymentSchedule.created() : super.created() {
+    _logger.fine('PaymentSchedule created sr => $shadowRoot');
+  }
+
+  void domReady() {
+    super.domReady();
+    _logger.fine('PaymentSchedule domReady with sr => $shadowRoot');
+  }
+
+  void ready() {
+    super.ready();
+    _logger.fine('PaymentSchedule ready with sr => $shadowRoot');
     // custom <PaymentSchedule created>
 
     if(shadowRoot != null) {
@@ -24,7 +35,16 @@ class PaymentSchedule extends PolymerElement {
     }
 
     // end <PaymentSchedule created>
+
   }
+
+  void attached() {
+    super.attached();
+    _logger.fine('PaymentSchedule attached with sr => $shadowRoot');
+    assert(shadowRoot != null);
+  }
+
+
 
   // custom <class PaymentSchedule>
 

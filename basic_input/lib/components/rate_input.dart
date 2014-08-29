@@ -12,6 +12,17 @@ class RateInput extends PolymerElement {
   num get rate => _rate;
 
   RateInput.created() : super.created() {
+    _logger.fine('RateInput created sr => $shadowRoot');
+  }
+
+  void domReady() {
+    super.domReady();
+    _logger.fine('RateInput domReady with sr => $shadowRoot');
+  }
+
+  void ready() {
+    super.ready();
+    _logger.fine('RateInput ready with sr => $shadowRoot');
     // custom <RateInput created>
 
     if(shadowRoot != null) {
@@ -22,7 +33,16 @@ class RateInput extends PolymerElement {
     }
 
     // end <RateInput created>
+
   }
+
+  void attached() {
+    super.attached();
+    _logger.fine('RateInput attached with sr => $shadowRoot');
+    assert(shadowRoot != null);
+  }
+
+
 
   // custom <class RateInput>
 

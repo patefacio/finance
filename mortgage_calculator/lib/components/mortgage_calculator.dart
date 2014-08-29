@@ -15,8 +15,19 @@ class MortgageCalculator extends PolymerElement {
   PaymentSchedule paymentSchedule;
 
   MortgageCalculator.created() : super.created() {
-    // custom <MortgageCalculator created>
+    _logger.fine('MortgageCalculator created sr => $shadowRoot');
+  }
 
+  void domReady() {
+    super.domReady();
+    _logger.fine('MortgageCalculator domReady with sr => $shadowRoot');
+  }
+
+  void ready() {
+    super.ready();
+    _logger.fine('MortgageCalculator ready with sr => $shadowRoot');
+    // custom <MortgageCalculator created>
+    print('MortgageCalculator created with sr => $shadowRoot');
     if(shadowRoot != null) {
       mortgageDetails = ($['details'] as MortgageDetails);
       paymentSchedule = ($['schedule'] as PaymentSchedule);
@@ -33,7 +44,16 @@ class MortgageCalculator extends PolymerElement {
     }
 
     // end <MortgageCalculator created>
+
   }
+
+  void attached() {
+    super.attached();
+    _logger.fine('MortgageCalculator attached with sr => $shadowRoot');
+    assert(shadowRoot != null);
+  }
+
+
 
   // custom <class MortgageCalculator>
 
