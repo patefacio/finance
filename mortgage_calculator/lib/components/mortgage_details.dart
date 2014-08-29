@@ -1,4 +1,5 @@
 library mortgage_details;
+import 'dart:html' hide Timeline;
 import 'package:basic_input/components/money_input.dart';
 import 'package:basic_input/components/num_with_units_input.dart';
 import 'package:basic_input/components/rate_input.dart';
@@ -22,9 +23,12 @@ class MortgageDetails extends PolymerElement {
     _logger.fine('MortgageDetails created sr => $shadowRoot');
   }
 
+  @override
   void domReady() {
     super.domReady();
     _logger.fine('MortgageDetails domReady with sr => $shadowRoot');
+    // custom <MortgageDetails domReady>
+
     mortgageAmountInput.label = r" $ Amount of Loan";
     rateInput.label = " Rate (%)";
     termYearsInput
@@ -32,17 +36,29 @@ class MortgageDetails extends PolymerElement {
       ..units = "years";
 
     recalc();
+
+    // end <MortgageDetails domReady>
+
   }
 
+  @override
   void ready() {
     super.ready();
     _logger.fine('MortgageDetails ready with sr => $shadowRoot');
+    // custom <MortgageDetails created>
+    // end <MortgageDetails created>
+
+    // custom <MortgageDetails ready>
+    // end <MortgageDetails ready>
+
   }
 
   @override
   void attached() {
     super.attached();
     _logger.fine('MortgageDetails attached with sr => $shadowRoot');
+    assert(shadowRoot != null);
+    // custom <MortgageDetails attached>
 
     (mortgageAmountInput = $["mortgage-amount"] as MoneyInput)
       ..onBlur.listen((_) => recalc())
@@ -59,7 +75,11 @@ class MortgageDetails extends PolymerElement {
     mortgageAmountInput.onUpdate(recalc);
     rateInput.onUpdate(recalc);
     termYearsInput.onUpdate(recalc);
+
+    // end <MortgageDetails attached>
+
   }
+
 
 
   // custom <class MortgageDetails>
@@ -100,6 +120,8 @@ class MortgageDetails extends PolymerElement {
 
 // end <class MortgageDetails>
 }
+
+
 
 
 // custom <mortgage_details>

@@ -13,6 +13,10 @@ dependencies:
   basic_input:
     path: ../basic_input
 
+  paper_elements: ">=0.1.1+2"
+  core_elements: ">=0.2.0+1"
+
+
 # end <mortgage_calculator dependencies>
 
 dev_dependencies:

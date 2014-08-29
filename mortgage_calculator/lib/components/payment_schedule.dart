@@ -17,26 +17,49 @@ class PaymentSchedule extends PolymerElement {
     _logger.fine('PaymentSchedule created sr => $shadowRoot');
   }
 
+  @override
   void domReady() {
     super.domReady();
     _logger.fine('PaymentSchedule domReady with sr => $shadowRoot');
+    // custom <PaymentSchedule domReady>
+
     _startDateInput.label = "yyyy-MM-dd";
     _startDateInput.date = new DateTime.now();
     update(paymentDetails);
+
+    // end <PaymentSchedule domReady>
+
   }
 
+  @override
   void ready() {
     super.ready();
     _logger.fine('PaymentSchedule ready with sr => $shadowRoot');
+    // custom <PaymentSchedule created>
+    // end <PaymentSchedule created>
+
+    // custom <PaymentSchedule ready>
+    // end <PaymentSchedule ready>
+
   }
 
+  @override
   void attached() {
     super.attached();
     _logger.fine('PaymentSchedule attached with sr => $shadowRoot');
     assert(shadowRoot != null);
+    // custom <PaymentSchedule attached>
+
     _startDateInput = $["date"] as DateInput;
     _scheduleTable = $['schedule_table'];
+
+    // end <PaymentSchedule attached>
+
   }
+
+
+
+  // custom <class PaymentSchedule>
 
   update(observer) {
     _startDateInput.onUpdate(observer);
@@ -116,6 +139,8 @@ class PaymentSchedule extends PolymerElement {
   TableElement _scheduleTable;
   MortgageSpec _mortgageSpec;
 }
+
+
 
 
 // custom <payment_schedule>

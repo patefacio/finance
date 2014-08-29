@@ -1,4 +1,5 @@
 library mortgage_calculator;
+import 'dart:html' hide Timeline;
 import 'package:logging/logging.dart';
 import 'package:mortgage_calculator/components/mortgage_details.dart';
 import 'package:mortgage_calculator/components/payment_schedule.dart';
@@ -17,18 +18,29 @@ class MortgageCalculator extends PolymerElement {
     _logger.fine('MortgageCalculator created sr => $shadowRoot');
   }
 
+  @override
   void domReady() {
     super.domReady();
     _logger.fine('MortgageCalculator domReady with sr => $shadowRoot');
+    // custom <MortgageCalculator domReady>
     mortgageDetails.mortgageAmount = 250000;
     mortgageDetails.termYears = 30;
     mortgageDetails.rate = 0.0525;
     updatePaymentSchedule();
+    // end <MortgageCalculator domReady>
+
   }
 
+  @override
   void ready() {
     super.ready();
     _logger.fine('MortgageCalculator ready with sr => $shadowRoot');
+    // custom <MortgageCalculator created>
+    // end <MortgageCalculator created>
+
+    // custom <MortgageCalculator ready>
+    // end <MortgageCalculator ready>
+
   }
 
   @override
@@ -36,12 +48,18 @@ class MortgageCalculator extends PolymerElement {
     super.attached();
     _logger.fine('MortgageCalculator attached with sr => $shadowRoot');
     assert(shadowRoot != null);
+    // custom <MortgageCalculator attached>
+
     mortgageDetails = ($['details'] as MortgageDetails);
     paymentSchedule = ($['schedule'] as PaymentSchedule);
     mortgageDetails.changes.listen((records) {
       if (records.any((record) => record.name == #payment))updatePaymentSchedule();
     });
+
+    // end <MortgageCalculator attached>
+
   }
+
 
 
   // custom <class MortgageCalculator>
@@ -56,6 +74,8 @@ class MortgageCalculator extends PolymerElement {
 
 // end <class MortgageCalculator>
 }
+
+
 
 
 // custom <mortgage_calculator>
