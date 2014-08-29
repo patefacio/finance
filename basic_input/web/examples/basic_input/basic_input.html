@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>basicInput example showing usage of basicInput component library</title>
     <!-- custom <forehead basicInput> -->
     <!-- end <forehead basicInput> -->
-    <link rel="import" href="packages/polymer/polymer.html">
+    <script src="packages/web_components/platform.js"></script>
+    <script src="packages/web_components/dart_support.js"></script>
+
     <link rel="import" href="packages/basic_input/components/money_input.html">
     <link rel="import" href="packages/basic_input/components/rate_input.html">
     <link rel="import" href="packages/basic_input/components/num_with_units_input.html">
@@ -15,34 +17,29 @@
     <script src="packages/browser/dart.js"></script>
 
     <style>
-      /* custom <style basicInput> */
-      /* end <style basicInput> */
+        /* custom <style basicInput> */
+        /* end <style basicInput> */
     </style>
+</head>
+<body>
 
-    <!-- custom <chin basicInput> -->
+<fieldset>
+    <label>Money Input</label>
+    <plus-money-input>ddd</plus-money-input>
 
-    <fieldset>
-      <label>Money Input</label>
-      <plus-money-input></plus-money-input>
+    <label>Rate Input</label>
+    <plus-rate-input></plus-rate-input>
 
-      <label>Rate Input</label>
-      <plus-rate-input></plus-rate-input>
+    <label>Number With Units Input</label>
+    <plus-num-with-units-input></plus-num-with-units-input>
 
-      <label>Number With Units Input</label>
-      <plus-num-with-units-input></plus-num-with-units-input>
+    <label>Date Input</label>
+    <plus-date-input></plus-date-input>
 
-      <label>Date Input</label>
-      <plus-date-input></plus-date-input>
+    <label>Year Input</label>
+    <plus-year-input></plus-year-input>
 
-      <label>Year Input</label>
-      <plus-year-input></plus-year-input>
-
-    </fieldset>
-
-    <!-- end <chin basicInput> -->
-  </head>
-  <body>
-  <!-- custom <body basicInput> -->
-  <!-- end <body basicInput> -->
-  </body>
+</fieldset>
+<script type="application/dart">export "package:polymer/init.dart";</script>
+</body>
 </html>

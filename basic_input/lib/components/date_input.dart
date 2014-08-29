@@ -12,16 +12,16 @@ class DateInput extends PolymerElement {
   DateTime get date => _date;
 
   DateInput.created() : super.created() {
-    // custom <DateInput created>
 
-    if(shadowRoot == null) return;
+    // end <DateInput created>
+  }
 
-    _dateElement = shadowRoot.querySelector('#date')
+  attached(){
+    super.attached();
+    _dateElement = $['date']
       ..onBlur.listen((evt) => reformatDate())
       ..onFocus.listen((evt) => reformatDate())
       ..onKeyUp.listen((evt) { if(evt.which == 13) reformatDate(); });
-
-    // end <DateInput created>
   }
 
   // custom <class DateInput>

@@ -2,7 +2,7 @@ name: basic_input
 version: 0.0.1
 author: Daniel Davidson <dbdavidson@yahoo.com>
 dependencies:
-  polymer: ">=0.10.0 <0.11.0"
+  polymer: ">=0.11.0 <0.12.0"
   logging: ">=0.9.0 <0.10.0"
   collection: ">=0.9.0 < 0.10.0"
 

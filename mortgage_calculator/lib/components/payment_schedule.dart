@@ -14,25 +14,28 @@ class PaymentSchedule extends PolymerElement {
 
 
   PaymentSchedule.created() : super.created() {
-    // custom <PaymentSchedule created>
-
-    if(shadowRoot != null) {
-      (_startDateInput = $["date"] as DateInput)..label = "yyyy-MM-dd";
-      _scheduleTable = $['schedule_table'];
-      _startDateInput.date = new DateTime.now();
-      onStartDateUpdate(paymentDetails);
-    }
-
-    // end <PaymentSchedule created>
   }
 
-  // custom <class PaymentSchedule>
+  update(observer){
+    _startDateInput.onUpdate(observer);    
+  }
+  
+  void attached() {
+    super.attached();
+    _startDateInput = $["date"] as DateInput;
+    _scheduleTable = $['schedule_table'];
+  }
 
-  onStartDateUpdate(observer) => _startDateInput.onUpdate(observer);
+
+  void domReady() {
+    _startDateInput.label = "yyyy-MM-dd";
+    _startDateInput.date = new DateTime.now();
+    update(paymentDetails);
+  }
 
   setTableExtras(num principal, num interest) {
     final tHead = new Element.tag('thead')
-    ..innerHtml = '''
+      ..innerHtml = '''
 <td>Date</td>
 <td>Principal Paid</td>
 <td>Interest Paid</td>
@@ -40,8 +43,7 @@ class PaymentSchedule extends PolymerElement {
 ''';
 
     final tFoot = new Element.tag('tfoot')
-    ..innerHtml =
-          '''
+      ..innerHtml = '''
 <td>Total Paid</td>
 <td class="money">${moneyFormat(principal)}</td>
 <td class="money">${moneyFormat(interest)}</td>
@@ -49,21 +51,21 @@ class PaymentSchedule extends PolymerElement {
       ..children.first.classes.add('table-line');
 
     _scheduleTable.children
-    ..removeWhere((child) => child is TableSectionElement);
+      ..removeWhere((child) => child is TableSectionElement);
 
     _scheduleTable.children
-    ..insert(0, tHead)
-    ..add(tFoot);
+      ..insert(0, tHead)
+      ..add(tFoot);
   }
 
   bool paymentDetails([MortgageSpec mortgageSpec]) {
-    if(mortgageSpec != null) {
+    if (mortgageSpec != null) {
       _mortgageSpec = mortgageSpec;
     }
-    if(_mortgageSpec == null) return null;
+    if (_mortgageSpec == null) return null;
 
     int originalLength = _scheduleTable.rows.length;
-    for(int i=0; i<originalLength; ++i) {
+    for (int i = 0; i < originalLength; ++i) {
       _scheduleTable.deleteRow(0);
     }
 
@@ -76,17 +78,21 @@ class PaymentSchedule extends PolymerElement {
       var row = new TableRowElement();
       _scheduleTable.children.add(row);
 
-      row.children.add(new TableCellElement()..innerHtml = dateFormat(payment.date));
+      row.children.add(new TableCellElement()
+        ..innerHtml = dateFormat(payment.date));
 
-      var cell = (row.children..add(new TableCellElement())).last;
+      var cell = (row.children
+        ..add(new TableCellElement())).last;
 
       cell
         ..innerHtml = moneyFormat(payment.periodPrincipalPaid, true)
         ..classes.add('money');
-      (row.children..add(new TableCellElement())).last
+      (row.children
+        ..add(new TableCellElement())).last
         ..innerHtml = moneyFormat(payment.periodInterestPaid, true)
         ..classes.add('money');
-      (row.children..add(new TableCellElement())).last
+      (row.children
+        ..add(new TableCellElement())).last
         ..innerHtml = moneyFormat(payment.remainingPrincipal, true)
         ..classes.add('money');
       totalPrincipal += payment.periodPrincipalPaid;
@@ -101,8 +107,6 @@ class PaymentSchedule extends PolymerElement {
   TableElement _scheduleTable;
   MortgageSpec _mortgageSpec;
 }
-
-
 
 
 // custom <payment_schedule>
