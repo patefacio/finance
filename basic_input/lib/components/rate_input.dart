@@ -23,26 +23,17 @@ class RateInput extends PolymerElement {
   void ready() {
     super.ready();
     _logger.fine('RateInput ready with sr => $shadowRoot');
-    // custom <RateInput created>
-
-    if(shadowRoot != null) {
-      _rateElement = shadowRoot.querySelector('#rate')
-        ..onBlur.listen((evt) => reformatRate())
-        ..onFocus.listen((evt) => reformatRate())
-        ..onKeyUp.listen((evt) { if(evt.which == 13) reformatRate(); });
-    }
-
-    // end <RateInput created>
-
   }
 
   void attached() {
     super.attached();
     _logger.fine('RateInput attached with sr => $shadowRoot');
     assert(shadowRoot != null);
+    _rateElement = $['rate'] // shadowRoot.querySelector('#rate')
+      ..onBlur.listen((evt) => reformatRate())
+      ..onFocus.listen((evt) => reformatRate())
+      ..onKeyUp.listen((evt) { if(evt.which == 13) reformatRate(); });
   }
-
-
 
   // custom <class RateInput>
 

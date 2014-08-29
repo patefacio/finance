@@ -25,26 +25,17 @@ class NumWithUnitsInput extends PolymerElement {
   void ready() {
     super.ready();
     _logger.fine('NumWithUnitsInput ready with sr => $shadowRoot');
-    // custom <NumWithUnitsInput created>
-
-    if(shadowRoot == null) return;
-
-    _valueElement = shadowRoot.querySelector('#value')
-      ..onBlur.listen((evt) => reformatNumber())
-      ..onFocus.listen((evt) => reformatNumber())
-      ..onKeyUp.listen((evt) { if(evt.which == 13) reformatNumber(); });
-
-    // end <NumWithUnitsInput created>
-
   }
 
   void attached() {
     super.attached();
     _logger.fine('NumWithUnitsInput attached with sr => $shadowRoot');
     assert(shadowRoot != null);
+    _valueElement = $['value'] // shadowRoot.querySelector('#value')
+      ..onBlur.listen((evt) => reformatNumber())
+      ..onFocus.listen((evt) => reformatNumber())
+      ..onKeyUp.listen((evt) { if(evt.which == 13) reformatNumber(); });
   }
-
-
 
   // custom <class NumWithUnitsInput>
 

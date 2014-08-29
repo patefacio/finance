@@ -23,26 +23,18 @@ class MoneyInput extends PolymerElement {
   void ready() {
     super.ready();
     _logger.fine('MoneyInput ready with sr => $shadowRoot');
-    // custom <MoneyInput created>
-
-    if(shadowRoot != null) {
-      _amountElement = shadowRoot.querySelector('#money-amount')
-        ..onBlur.listen((evt) => reformatAmount())
-        ..onFocus.listen((evt) => reformatAmount())
-        ..onKeyUp.listen((evt) { if(evt.which == 13) reformatAmount(); });
-    }
-
-    // end <MoneyInput created>
-
   }
 
   void attached() {
     super.attached();
     _logger.fine('MoneyInput attached with sr => $shadowRoot');
     assert(shadowRoot != null);
+    _amountElement = $['money-amount'] ;
+    _amountElement
+      ..onBlur.listen((evt) => reformatAmount())
+      ..onFocus.listen((evt) => reformatAmount())
+      ..onKeyUp.listen((evt) { if(evt.which == 13) reformatAmount(); });
   }
-
-
 
   // custom <class MoneyInput>
 

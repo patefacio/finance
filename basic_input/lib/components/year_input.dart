@@ -23,26 +23,17 @@ class YearInput extends PolymerElement {
   void ready() {
     super.ready();
     _logger.fine('YearInput ready with sr => $shadowRoot');
-    // custom <YearInput created>
-
-    if(shadowRoot == null) return;
-
-    _yearElement = shadowRoot.querySelector('#year')
-      ..onBlur.listen((evt) => reformatNumber())
-      ..onFocus.listen((evt) => reformatNumber())
-      ..onKeyUp.listen((evt) { if(evt.which == 13) reformatNumber(); });
-
-    // end <YearInput created>
-
   }
 
   void attached() {
     super.attached();
     _logger.fine('YearInput attached with sr => $shadowRoot');
     assert(shadowRoot != null);
+    _yearElement = $['year'] // shadowRoot.querySelector('#year')
+      ..onBlur.listen((evt) => reformatNumber())
+      ..onFocus.listen((evt) => reformatNumber())
+      ..onKeyUp.listen((evt) { if(evt.which == 13) reformatNumber(); });
   }
-
-
 
   // custom <class YearInput>
 

@@ -23,23 +23,16 @@ class DateInput extends PolymerElement {
   void ready() {
     super.ready();
     _logger.fine('DateInput ready with sr => $shadowRoot');
-    // custom <DateInput created>
-
-    if(shadowRoot == null) return;
-
-    _dateElement = shadowRoot.querySelector('#date')
-      ..onBlur.listen((evt) => reformatDate())
-      ..onFocus.listen((evt) => reformatDate())
-      ..onKeyUp.listen((evt) { if(evt.which == 13) reformatDate(); });
-
-    // end <DateInput created>
-
   }
 
   void attached() {
     super.attached();
     _logger.fine('DateInput attached with sr => $shadowRoot');
     assert(shadowRoot != null);
+    _dateElement = $['date']
+      ..onBlur.listen((evt) => reformatDate())
+      ..onFocus.listen((evt) => reformatDate())
+      ..onKeyUp.listen((evt) { if(evt.which == 13) reformatDate(); });
   }
 
 
