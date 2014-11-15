@@ -7,6 +7,10 @@ import 'package:logging/logging.dart';
 import 'package:mortgage_calculator/mortgage.dart';
 import 'package:polymer/polymer.dart';
 
+// custom <additional imports>
+// end <additional imports>
+
+
 final _logger = new Logger("paymentSchedule");
 
 @CustomTag("plus-payment-schedule")
@@ -15,6 +19,9 @@ class PaymentSchedule extends PolymerElement {
 
   PaymentSchedule.created() : super.created() {
     _logger.fine('PaymentSchedule created sr => $shadowRoot');
+    // custom <PaymentSchedule created>
+    // end <PaymentSchedule created>
+
   }
 
   @override
@@ -23,9 +30,9 @@ class PaymentSchedule extends PolymerElement {
     _logger.fine('PaymentSchedule domReady with sr => $shadowRoot');
     // custom <PaymentSchedule domReady>
 
-    _startDateInput.label = "yyyy-MM-dd";
+    _startDateInput.placeholder = "yyyy-MM-dd";
     _startDateInput.date = new DateTime.now();
-    update(paymentDetails);
+    update((e) => paymentDetails());
 
     // end <PaymentSchedule domReady>
 
@@ -35,9 +42,6 @@ class PaymentSchedule extends PolymerElement {
   void ready() {
     super.ready();
     _logger.fine('PaymentSchedule ready with sr => $shadowRoot');
-    // custom <PaymentSchedule created>
-    // end <PaymentSchedule created>
-
     // custom <PaymentSchedule ready>
     // end <PaymentSchedule ready>
 
@@ -45,6 +49,9 @@ class PaymentSchedule extends PolymerElement {
 
   @override
   void attached() {
+    // custom <PaymentSchedule pre-attached>
+    // end <PaymentSchedule pre-attached>
+
     super.attached();
     _logger.fine('PaymentSchedule attached with sr => $shadowRoot');
     assert(shadowRoot != null);
@@ -55,8 +62,17 @@ class PaymentSchedule extends PolymerElement {
 
     // end <PaymentSchedule attached>
 
+    _isAttached = true;
+    _onAttachedHandlers.forEach((handler) => handler(this));
   }
 
+  void onAttached(void onAttachedHandler(PaymentSchedule)) {
+    if(_isAttached) {
+      onAttachedHandler(this);
+    } else {
+      _onAttachedHandlers.add(onAttachedHandler);
+    }
+  }
 
 
   // custom <class PaymentSchedule>
@@ -138,6 +154,8 @@ class PaymentSchedule extends PolymerElement {
   DateInput _startDateInput;
   TableElement _scheduleTable;
   MortgageSpec _mortgageSpec;
+  bool _isAttached = false;
+  List _onAttachedHandlers = [];
 }
 
 

@@ -8,6 +8,10 @@ import 'package:logging/logging.dart';
 import 'package:mortgage_calculator/mortgage.dart';
 import 'package:polymer/polymer.dart';
 
+// custom <additional imports>
+// end <additional imports>
+
+
 final _logger = new Logger("mortgageDetails");
 
 @CustomTag("plus-mortgage-details")
@@ -21,6 +25,9 @@ class MortgageDetails extends PolymerElement {
 
   MortgageDetails.created() : super.created() {
     _logger.fine('MortgageDetails created sr => $shadowRoot');
+    // custom <MortgageDetails created>
+    // end <MortgageDetails created>
+
   }
 
   @override
@@ -29,10 +36,10 @@ class MortgageDetails extends PolymerElement {
     _logger.fine('MortgageDetails domReady with sr => $shadowRoot');
     // custom <MortgageDetails domReady>
 
-    mortgageAmountInput.label = r" $ Amount of Loan";
-    rateInput.label = " Rate (%)";
+    mortgageAmountInput.placeholder = r" $ Amount of Loan";
+    rateInput.placeholder = " Rate (%)";
     termYearsInput
-      ..label = " Term (years)"
+      ..placeholder = " Term (years)"
       ..units = "years";
 
     recalc();
@@ -45,9 +52,6 @@ class MortgageDetails extends PolymerElement {
   void ready() {
     super.ready();
     _logger.fine('MortgageDetails ready with sr => $shadowRoot');
-    // custom <MortgageDetails created>
-    // end <MortgageDetails created>
-
     // custom <MortgageDetails ready>
     // end <MortgageDetails ready>
 
@@ -55,6 +59,9 @@ class MortgageDetails extends PolymerElement {
 
   @override
   void attached() {
+    // custom <MortgageDetails pre-attached>
+    // end <MortgageDetails pre-attached>
+
     super.attached();
     _logger.fine('MortgageDetails attached with sr => $shadowRoot');
     assert(shadowRoot != null);
@@ -72,14 +79,23 @@ class MortgageDetails extends PolymerElement {
       ..onBlur.listen((_) => recalc())
       ..onFocus.listen((_) => recalc());
 
-    mortgageAmountInput.onUpdate(recalc);
-    rateInput.onUpdate(recalc);
-    termYearsInput.onUpdate(recalc);
+    mortgageAmountInput.onAttached((x) => x.onUpdate((_) => recalc()));
+    rateInput.onAttached((x) => x.onUpdate((_) => recalc()));
+    termYearsInput.onAttached((x) => x.onUpdate((_) => recalc()));
 
     // end <MortgageDetails attached>
 
+    _isAttached = true;
+    _onAttachedHandlers.forEach((handler) => handler(this));
   }
 
+  void onAttached(void onAttachedHandler(MortgageDetails)) {
+    if(_isAttached) {
+      onAttachedHandler(this);
+    } else {
+      _onAttachedHandlers.add(onAttachedHandler);
+    }
+  }
 
 
   // custom <class MortgageDetails>
@@ -98,9 +114,9 @@ class MortgageDetails extends PolymerElement {
 
   void recalc() {
     var calculated = _payment;
-    formattedPayment = moneyFormat(_payment);
-    if (_payment != 0.0) {
-      payment = _payment;
+    formattedPayment = moneyFormat(calculated);
+    if (calculated != 0.0) {
+      payment = calculated;
     }
   }
 
@@ -119,6 +135,8 @@ class MortgageDetails extends PolymerElement {
 
 
 // end <class MortgageDetails>
+  bool _isAttached = false;
+  List _onAttachedHandlers = [];
 }
 
 

@@ -4,7 +4,12 @@ import 'package:logging/logging.dart';
 import 'package:mortgage_calculator/components/mortgage_details.dart';
 import 'package:mortgage_calculator/components/payment_schedule.dart';
 import 'package:mortgage_calculator/mortgage.dart';
+import 'package:paper_elements/paper_input.dart';
 import 'package:polymer/polymer.dart';
+
+// custom <additional imports>
+// end <additional imports>
+
 
 final _logger = new Logger("mortgageCalculator");
 
@@ -16,6 +21,9 @@ class MortgageCalculator extends PolymerElement {
 
   MortgageCalculator.created() : super.created() {
     _logger.fine('MortgageCalculator created sr => $shadowRoot');
+    // custom <MortgageCalculator created>
+    // end <MortgageCalculator created>
+
   }
 
   @override
@@ -23,9 +31,6 @@ class MortgageCalculator extends PolymerElement {
     super.domReady();
     _logger.fine('MortgageCalculator domReady with sr => $shadowRoot');
     // custom <MortgageCalculator domReady>
-    mortgageDetails.mortgageAmount = 250000;
-    mortgageDetails.termYears = 30;
-    mortgageDetails.rate = 0.0525;
     updatePaymentSchedule();
     // end <MortgageCalculator domReady>
 
@@ -35,9 +40,6 @@ class MortgageCalculator extends PolymerElement {
   void ready() {
     super.ready();
     _logger.fine('MortgageCalculator ready with sr => $shadowRoot');
-    // custom <MortgageCalculator created>
-    // end <MortgageCalculator created>
-
     // custom <MortgageCalculator ready>
     // end <MortgageCalculator ready>
 
@@ -45,6 +47,9 @@ class MortgageCalculator extends PolymerElement {
 
   @override
   void attached() {
+    // custom <MortgageCalculator pre-attached>
+    // end <MortgageCalculator pre-attached>
+
     super.attached();
     _logger.fine('MortgageCalculator attached with sr => $shadowRoot');
     assert(shadowRoot != null);
@@ -56,10 +61,23 @@ class MortgageCalculator extends PolymerElement {
       if (records.any((record) => record.name == #payment))updatePaymentSchedule();
     });
 
+    mortgageDetails.mortgageAmount = 250000;
+    mortgageDetails.termYears = 30;
+    mortgageDetails.rate = 0.0525;
+
     // end <MortgageCalculator attached>
 
+    _isAttached = true;
+    _onAttachedHandlers.forEach((handler) => handler(this));
   }
 
+  void onAttached(void onAttachedHandler(MortgageCalculator)) {
+    if(_isAttached) {
+      onAttachedHandler(this);
+    } else {
+      _onAttachedHandlers.add(onAttachedHandler);
+    }
+  }
 
 
   // custom <class MortgageCalculator>
@@ -73,6 +91,8 @@ class MortgageCalculator extends PolymerElement {
   }
 
 // end <class MortgageCalculator>
+  bool _isAttached = false;
+  List _onAttachedHandlers = [];
 }
 
 

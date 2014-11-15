@@ -2,5 +2,7 @@
 packages
 build
 # custom <additional>
+.pub
+pubspec.lock
 # end <additional>
 

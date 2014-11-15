@@ -5,6 +5,8 @@
 <!-- custom <mortgageCalculator head> -->
 
 <link rel="import" href="../../../packages/paper_elements/paper_icon_button.html">
+<link rel="import" href="../../../packages/paper_elements/paper_button.html">
+<link rel="import" href="../../../packages/paper_elements/paper_input.html">
 <link rel="import" href="../../../packages/core_elements/core_icons.html">
 <link rel="import" href="../../../packages/core_elements/core_icon.html">
 <link rel="import" href="../../../packages/core_elements/core_icon_button.html">
@@ -44,7 +46,7 @@
         display: block;
         float: left;
         background-color: cornsilk;
-        width: 17em;
+        width: 22em;
         }
 
         plus-payment-schedule {
@@ -96,10 +98,17 @@
         overflow: auto;
         }
 
-        core-icon-button /deep/ core-icon[role=img] {
-        height: 15px;
-        width: 15px;
-        }
+  core-icon-button /deep/ core-icon[role=img] {
+    height: 12px;
+    width: 12px;
+    padding: 1px;
+    margin: 1px;
+  }
+
+  core-icon-button {
+    padding: 0 1px 1px 1px;
+    margin: 1px;
+  }
 
     /* end <mortgageCalculator style> */
     </style>
@@ -110,15 +119,6 @@
       <plus-mortgage-details id="details"></plus-mortgage-details>
       <plus-payment-schedule id="schedule"></plus-payment-schedule>
     </div>
-
-
-    <section>
-      <div horizontal layout>
-        <core-icon-button icon="add-circle"></core-icon-button>
-        <div horizontal layout center>Expand Entries</div>
-      </div>
-    </section>
-
 
     <!-- end <mortgageCalculator template> -->
 

@@ -73,6 +73,7 @@ Remaining Principal: $remainingPrincipal
 // custom <library mortgage>
 
 double mortgagePayment(num principal, num rate, num years) {
+  if(principal == null || rate == null || years == null) return 0.0;
   var monthlyRate = rate/12.0;
   var months = 12.0*years;
   return principal*(monthlyRate/(1.0 - pow(1.0 + monthlyRate, -months)));

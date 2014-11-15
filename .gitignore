@@ -2,5 +2,5 @@
 packages
 build
 # custom <additional>
+.pub/
 # end <additional>
-
